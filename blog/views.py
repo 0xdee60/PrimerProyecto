@@ -50,6 +50,6 @@ class PostUpdateView(UpdateView):
     model = Post
     fields = ['titulo','contenido']
     template_name = 'blog_post_update.html'
-    def get_success_url(self):
+    def get_success_url(self,):
         pk = self.kwargs['pk']
-        return reverse_lazy('blog:details',kwargs['pk':pk])
+        return reverse_lazy('blog:details',kwargs={'pk':pk})
