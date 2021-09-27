@@ -1,0 +1,11 @@
+Actualizar
+<br>
+<form method="POST">
+    {% csrf_token %}
+    titulo{{form.titulo}}
+    <br>
+    contenido{{form.contenido}}
+    <button type="submit">Actualizar</button>
+</form>
+
+
