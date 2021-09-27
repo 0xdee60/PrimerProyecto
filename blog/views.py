@@ -1,6 +1,8 @@
+import django
 from blog.forms import PostCrear
 from django.shortcuts import get_object_or_404, render, redirect
-from django.views.generic import View
+from django.views.generic import View, UpdateView
+from django.urls import reverse_lazy
 from .models import Post
 
 # Create your views here.
@@ -42,3 +44,12 @@ class PostDetailsView(View):
             'post':post
         }
         return render(request,'blog_post_details.html',context)
+
+
+class PostUpdateView(UpdateView):
+    model = Post
+    fields = ['titulo','contenido']
+    template_name = 'blog_post_update.html'
+    def get_success_url(self):
+        pk = self.kwargs['pk']
+        return reverse_lazy('blog:details',kwargs['pk':pk])
