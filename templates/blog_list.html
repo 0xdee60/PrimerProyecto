@@ -1,1 +1,5 @@
 <h1>Bienvenido al blog</h1>
+{% for post in  posts%}
+    Titulo: <a href="{% url 'blog:details' post.id %}">{{post.titulo}}</a>
+{% endfor %}
+
