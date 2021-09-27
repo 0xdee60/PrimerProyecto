@@ -2,6 +2,7 @@
 {% for post in  posts%}
     Titulo: <a href="{% url 'blog:details' post.id %}">{{post.titulo}}</a>
     <a href="{% url 'blog:update' post.id %}">Update</a>
+    <a href="{% url 'blog:delete' post.id %}">Borrar</a>
     <br>
 {% endfor %}
 

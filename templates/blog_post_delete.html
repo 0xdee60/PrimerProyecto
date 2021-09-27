@@ -1,0 +1,6 @@
+Estas seguro que deseas eliminar el post ? 
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Aceptar</button>
+</form>
