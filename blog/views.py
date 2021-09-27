@@ -1,7 +1,7 @@
 import django
 from blog.forms import PostCrear
 from django.shortcuts import get_object_or_404, render, redirect
-from django.views.generic import View, UpdateView
+from django.views.generic import View, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Post
 
@@ -53,3 +53,9 @@ class PostUpdateView(UpdateView):
     def get_success_url(self,):
         pk = self.kwargs['pk']
         return reverse_lazy('blog:details',kwargs={'pk':pk})
+
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = 'blog_post_delete.html'
+    success_url = reverse_lazy('blog:home')
+    
